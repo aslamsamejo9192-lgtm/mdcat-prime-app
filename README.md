@@ -19,7 +19,9 @@ Pushes to `main` (or a manual dispatch) run
 
 Release signing uses a dedicated keystore (alias `mdcatprime`, created
 2026-11-26, valid until 2054). The keystore and its passwords live ONLY as
-GitHub Actions secrets (`KEYSTORE_BASE64`, `KEYSTORE_PASSWORD`,
-`KEY_PASSWORD`) plus a local backup copy that is never committed.
+GitHub Actions secrets (`KEYSTORE_BASE64`, `KEYSTORE_PASSWORD`)
+plus a local backup copy that is never committed. The key password
+is the same as the store password (openssl PKCS#12 encrypts the key
+with the export password).
 The same keystore must sign every future build, or Android will refuse
 updates to the installed app.
